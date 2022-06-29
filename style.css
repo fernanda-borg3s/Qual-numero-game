@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Odibee+Sans&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body{
+    width: 100%;
+   height: 100vh; 
+   background: linear-gradient(#271442ff,  #000);
+   overflow-x: hidden;
+   /* background-image: url(fundo1.jpg); */
+
+   
+  
+}
+img.fundo{
+   height: 99vh;
+ 
+    /* animation: bgMove ease-in-out 5s infinite alternate; */
+}
+@keyframes bgMove{
+    to{
+        transform: rotate(0);
+    }
+    from{
+        transform: rotate(0.5deg);
+    }
+}
+div.titulo-central img{
+    position:absolute;
+    top: 5%;
+    left: 21%;
+    font-size: 30px;
+    color: white;
+    width: 60%;
+   
+}
+section img{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    pointer-events: none;
+    object-fit: cover;
+}
+a#btn{
+    position: absolute;
+    top: 37%;
+    left: 40%;
+    
+}
+a#btn button, button#reiniciar, #btn-chutar{
+    padding: 15px;
+    width: 200px;
+    cursor: pointer;
+    font-size: 28px;
+    color: white;
+    background-color: #632b6c;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0px 20px 15px rgba(0, 0, 0, 0.481) ;
+   
+    font-family: 'Press Start 2P', cursive;
+    /* animation: moveBtn ease-in-out 2s infinite alternate; */
+    
+}
+a#btn button:hover{
+    background-color: #c86b98;
+    
+   
+}
+@keyframes moveBtn{
+    to{
+        transform: translate(0);
+    }
+    from{
+        transform: translate(0, 20px);
+    }
+}
+
+ section#instruçoes{
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    color: white;
+    font-family: 'Odibee Sans', cursive;
+   
+}
+#instruçoes p{
+    max-width: 90%;
+    margin: auto;
+
+   
+}
+footer{
+    height: 100px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    padding: 20px 10px;
+    background: linear-gradient(#172118 20%, #000);
+    font-family: 'Odibee Sans', cursive;
+} 
+footer a{
+    color: inherit;
+    text-decoration: none;
+}
+section#tabelajogo{
+    position: absolute;
+    top: 0;
+}
+
+div.box-ten-fase{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    /* margin-left: 5%; */
+    width: 50%;
+    height: 50px;
+    color: white;
+    background-color:transparent;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px;
+    position: absolute;
+    top: 2%;
+    left: 25%;
+    
+}
+div.container, div.box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 5%;
+    width: 100%;
+   
+   
+}
+div.box-container{
+    margin: 0;
+    width: 50%;
+    padding: 25px;
+    border: 2px solid #c86b98;
+    background: rgba(255, 255, 255, 0.008);
+    box-shadow: 0 8px 32px 0 rgba(8, 8, 12, 0.37);
+    backdrop-filter: blur( 13.5px );
+   
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+div img#pag-game{
+    width: 100%;
+    position: unset;
+}
+div.container p {
+    max-width: 100%;
+    color: white;
+    text-align: center;
+    margin: 10px;
+}
+div.container input{
+    width: 15%;
+    height: 80px;
+    padding: 20px;
+    font-size: 30px;
+    border: 1px solid #ffc1a0;
+    margin: 10px;
+    text-align: center;
+    overflow: hidden;
+}
+/* esconder scroll do input tipo number */
+div.container input::-webkit-outer-spin-button,
+div.container input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+div.container input:focus{
+    outline:  #c86b98;
+}
+button#reiniciar, #btn-chutar{
+    font-size: 15px;
+    box-shadow: none;
+    margin-top: 30px;
+    display: none;
+}
+#btn-chutar{
+    display: block;
+}
+#proximaFase{
+    display: none;
+}
+div#show-number{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-width: 660px;
+    align-items: center;
+    justify-content:center;
+}
+p.mostrar-number{
+    text-align: center;
+    font-size: 25px;
+    background-color: #280f36;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px 2px;
+
+    
+  
+}
+footer#footer-game{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: transparent;
+}
