@@ -69,9 +69,11 @@ a#btn button, button#reiniciar, #btn-chutar{
 }
 a#btn button:hover{
     background-color: #c86b98;
-    
+    box-shadow: 0 0 20px #fff;
+    color: #280f36;
    
 }
+
 @keyframes moveBtn{
     to{
         transform: translate(0);
