@@ -113,7 +113,8 @@ footer a{
 }
 section#tabelajogo{
     position: absolute;
-    top: 0;
+    top: 5%;
+    left: 18%;
 }
 
 div.box-ten-fase{
@@ -147,7 +148,7 @@ div.container, div.box-container{
 }
 div.box-container{
     margin: 0;
-    width: 50%;
+    width: 80%;
     padding: 25px;
     border: 2px solid #c86b98;
     background: rgba(255, 255, 255, 0.008);
@@ -166,6 +167,7 @@ div.container p {
     color: white;
     text-align: center;
     margin: 10px;
+    font-size: 30px;
 }
 div.container input{
     width: 15%;

@@ -11,21 +11,8 @@
 //definir som de erro e acerto
 //colocar musica
 
-
-
-let numeroSecreto = 0;
-//let numeroDeChances = 3
-let contador = 1;
-
-let situacao = ''
-
-
 let min = 1;
 let max = 10;
-// selecionar elementos
-  // input Numero
-  
-  
 
 function gerarNumeroFaseUm() {
   // gerar numero secreto
@@ -36,83 +23,60 @@ function gerarNumeroFaseUm() {
 //MAS PRIMEIRO TEM QUE VALIDAR A FASE QUE VAI CHAMAR A FUNÇÃO GERAR UM NUMERO DIFERENTE
 
 }
-
-function validarNumero (){
- 
-  let btnNext = document.getElementById('proximaFase');
-  let inputNumero = document.getElementById('putNumber').value;
-  if(inputNumero == numeroSecreto){
-    console.log("acertou");
-  //  btnNext.style.display = 'flex'
-    nextFase();
-  }else if(inputNumero != numeroSecreto){
-    // inputNumero.target.value = ""; // limpar a caixa depois de apertar enter
-    console.log("Não foi dessa vez, tente novamente")
-    // function ArmazenarNumber(){
-      
-      
-    // NumeroTentativas();
-  }else{
-    alert("DIGITE UM NÚMERO VÁLIDO")
-  }
-  /// array para armazenar numero digitados
-          let armazena = [];
-          armazena.push(inputNumero)
-          //criar os elementos
-          let criarItem = document.createElement('p');
-          criarItem.classList.add('mostrar-number');
-          criarItem.id = "criar-item";
-          armazena.forEach((element) => {
-              criarItem.innerHTML = `${element}`
-             //NA PROXIMA FASE, OS ELEMENTO TEM QUE IR LIMPO
-        });
+let armazena = [];
+let minTentativa = 0;
+    function validarNumero (){
+      let tentativa = document.getElementById('tentativas');
+      let inputNumero = parseInt(document.getElementById('putNumber').value);
        
-        document.getElementById("show-number").appendChild(criarItem);
-  ////fim do array
+         if(inputNumero == numeroSecreto){
+          console.log("acertou");
+        //  btnNext.style.display = 'flex'
 
-}
+        // armazena.length = 0;
+        // console.log(armazena)
+        // minTentativa = 0;
+        // console.log("tentativas " + minTentativa)
+        // document.getElementById('tentativas').innerHTML = minTentativa
 
-function NumeroTentativas (){
-  let tentativa = document.getElementById('tentativas');
-  let minTentativa = 0;
-  // let maxTentativa = 10;
-  if(minTentativa < 10){
-    console.log(minTentativa + "Segundo")
-    minTentativa++;
-    console.log(minTentativa) ;
-   }else{
-    console.log('Atigiu o limite de tentativas');
-   }
-}
+          nextFase();
+        }else if(inputNumero != numeroSecreto){ 
+          console.log("Não foi dessa vez, tente novamente")
+        }else{
+          alert("DIGITE UM NÚMERO VÁLIDO")
+        }
+        /// array para armazenar numero digitados
+                armazena.push(inputNumero)
+                //criar os elementos
+                let criarItem = document.createElement('p');
+                criarItem.classList.add('mostrar-number');
+                criarItem.id = "criar-item";
+                armazena.forEach((element) => {
+                    criarItem.innerHTML = `${element}`
+                  //NA PROXIMA FASE, OS ELEMENTO TEM QUE IR LIMPO
+              });
+              document.getElementById("show-number").appendChild(criarItem);
+              minTentativa++; //coloquei a variavel fora da funçao e toda vez que a funçao termina adiciona um.
+              tentativa.innerHTML = minTentativa;
+            
+        ////fim do array
 
-function nextFase(){
-  let fase = document.getElementById('fase').innerHTML = 2;
-  fase += 1;
-  console.log(fase);
- max += 20; 
-}
+      }
 
-// EXEMPLO DE COMO LIMPAR ARRAY NA PROXIMA FASE
-/*const limparTarefa = () => {
-  const todoList = document.getElementById('toDo-List');
-  while(todoList.firstChild){
-      todoList.removeChild(todoList.lastChild);
-  }
-}
-
-const deleteAll = document.getElementById('btn-limpar');
-deleteAll.onclick = () =>{
-  listArr = [];
-  localStorage.setItem("New Todo", JSON.stringify(listArr));
-  limparTarefa();
-}*/
-
-
-
-// function teclaEnter(event){
-//   const tecla = event.key;
-//   if(tecla == 'Enter'){
-//     console.log("teste")
-//     addNumero();
-//   }
-// }
+      let fase = 1;
+      function nextFase(){
+          //limpar tudo, zerar tentativa, texto e gerar novo numero de uma nova fase
+        fase++;
+        document.getElementById('fase').innerHTML = fase;
+        
+        gerarNumeroFaseUm()
+      }
+      const teclaEnter = (event) => {
+          const tecla = event.key;
+          if(tecla === 'Enter'){
+              validarNumero();
+              event.target.value = ""; // limpar a caixa depois de apertar enter
+          }
+      }
+      document.getElementById('putNumber').addEventListener('keypress', teclaEnter);
+  
