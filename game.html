@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <title>Document</title>
+    <title>Que numero eu sou?</title>
 </head>
 <body>
     <div class="box-ten-fase">
-        <div><p>Tentativas: <span id="tentativas"></span></p></div>
+        <div><p>Tentativas: <span id="tentativas">5</span></p></div>
         <div><p>Fase: <span id="fase">1</span></p></div>
     </div>
     
@@ -19,11 +19,14 @@
   
     <section id="tabelajogo">
         <div class="container">
+        
             <div class="box-container">
+                <div id="contadorRegressivo"></div>
                 <img src="titulo.png" id="pag-game" alt="" srcset="">
-                <p>Digite um número de 1 a 10 e pressione "Enter"</p>
-                <input type="number" name="numero" id="putNumber" value="" >
-                <button onclick="gerarNumeroFaseUm()">Start</button>
+                <p id="comando">Digite um número de 1 a 10 e pressione "Enter"</p>
+                <input type="number" name="numero" id="putNumber" value="" required >
+                <button onclick="gerarNumero()">Start</button>
+                <p id="pertoOuLonge"></p>
                 <button id="reiniciar">DESISTIR</button>
                 <!-- <button id="proximaFase" onclick="nextFase()">Next</button> -->
             </div>

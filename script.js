@@ -1,82 +1,133 @@
-//capturar o elemento input convertendo para numero
-// conferir se é um numero
-// conferir se ta de acordo com a fase do jogo
-// mudar de texto assim que fase mudar
+//adicionar contagem regressiva
 // definir limite de tentativas diferente para cada fase
-//mostrar numero digitados, numero de tentaticas e fase
-//mudar texto ao mudar de fase com swith tbm
 //mostrar mensagem de erro e acertos
 //definir mensagem de aproximidade ou não.
 //colocar animação no acertos
 //definir som de erro e acerto
 //colocar musica
-
-let min = 1;
-let max = 10;
-
-function gerarNumeroFaseUm() {
-  // gerar numero secreto
+let duraçao = 45;
+function startTimer(duraçao) {
+  let tempo = duraçao, segundos;
+  let display = document.querySelector('#contadorRegressivo');
  
-  numeroSecreto = Math.floor(Math.random() * (max - min + 1)) + min
+    setInterval(function () {
+      segundos = parseInt(tempo % 60, 10);
+      segundos = segundos < 10 ? "0" + segundos : segundos;
+      display.textContent = "00:" + segundos;
+      
+      if(--tempo <= 0){
+        tempo = duraçao;
+        tempo = ""
+      }
+      console.log(tempo)// colocar o negocio aqui para reiniciar o jogo
+  }, 100);
+ 
+   
+}
+let maxTentativa = 5;
+let tentativa = document.getElementById('tentativas');
+function verificarTentativa(){
+  if(maxTentativa > 0){
+    --maxTentativa;
+  }else{
+    console.log("Atigiu o limite de tentivas")
+  }
+  tentativa.innerHTML = maxTentativa;
+}
+function gerarNumero() {
+
+  // gerar numero secreto
+  let comando = document.getElementById('comando');
+  numeroSecreto = Math.floor(Math.random() * 10 + 1);
   console.log(numeroSecreto)
-//CRIAR UM SWITCH PARA GERAR UM NUMERO DIFERENTE PARA CADA FASE
-//MAS PRIMEIRO TEM QUE VALIDAR A FASE QUE VAI CHAMAR A FUNÇÃO GERAR UM NUMERO DIFERENTE
+  switch (fase){
+    
+    case 2:
+      numeroSecreto = Math.floor(Math.random() * 50 + 1);
+      console.log( numeroSecreto);
+      comando.innerHTML = "Digite um número de 1 a 50";
+      maxTentativa = 10 + 1;
+      verificarTentativa();
+      break;
+    case 3:
+      numeroSecreto = Math.floor(Math.random() * 100 + 1);
+      console.log( numeroSecreto);
+      comando.innerHTML = "Digite um número de 1 a 100";
+      maxTentativa = 20 + 1;
+      verificarTentativa();
+      break;
+    case 4:
+      numeroSecreto = Math.floor(Math.random() * 500 + 1);
+        console.log(numeroSecreto);
+        console.log("chega com " + maxTentativa)
+        comando.innerHTML = "Digite um número de 1 a 500";
+        maxTentativa = 10 + 1;
+        verificarTentativa();
+        break;
+    case 5:
+      numeroSecreto = Math.floor(Math.random() * 1000 + 1);
+        console.log(numeroSecreto);
+        comando.innerHTML = "Parabens! Você é foda por ter chegado aqui! <br> Agora quero ver acertar essa. Digite um número de 1 a 1000";
+        startTimer(duraçao)
+        break;
+      
+  } 
 
 }
 let armazena = [];
-let minTentativa = 0;
     function validarNumero (){
-      let tentativa = document.getElementById('tentativas');
       let inputNumero = parseInt(document.getElementById('putNumber').value);
-       
-         if(inputNumero == numeroSecreto){
-          console.log("acertou");
-        //  btnNext.style.display = 'flex'
+      let numPertoLonge = document.getElementById('pertoOuLonge');
 
-        // armazena.length = 0;
-        // console.log(armazena)
-        // minTentativa = 0;
-        // console.log("tentativas " + minTentativa)
-        // document.getElementById('tentativas').innerHTML = minTentativa
-
-          nextFase();
-        }else if(inputNumero != numeroSecreto){ 
-          console.log("Não foi dessa vez, tente novamente")
-        }else{
+        armazena.push(inputNumero)/// array para armazenar numero digitados
+        let criarItem = document.createElement('p');  //criar os elementos
+        criarItem.classList.add('mostrar-number');
+        criarItem.id = "criar-item";
+        armazena.forEach((element) => {
+          if (!!inputNumero == false) {
+            criarItem.classList.remove('mostrar-number');  
+          }
+           else{criarItem.innerHTML = `${element}`
+          }      
+      });
+         if(inputNumero === numeroSecreto){
+            console.log("acertou");
+                 armazena.length = 0;
+                 document.getElementById("show-number").innerHTML = armazena;
+                    criarItem.classList.remove('mostrar-number');
+                    criarItem.innerHTML = "";
+                    numPertoLonge.style.display = "none"; 
+             nextFase();
+        }else if(inputNumero !== numeroSecreto){ 
+          numPertoLonge.style.display = "block"
+              if(inputNumero > numeroSecreto){
+                numPertoLonge.innerHTML = "O número é menor"
+               verificarTentativa(); 
+              }else if (inputNumero < numeroSecreto){
+                numPertoLonge.innerHTML = "O número é maior";
+                verificarTentativa(); 
+              }
+              //vou deixar esse else aqui por enquanto, mas parece que ele nao é necessario
+        }else {
+          
           alert("DIGITE UM NÚMERO VÁLIDO")
         }
-        /// array para armazenar numero digitados
-                armazena.push(inputNumero)
-                //criar os elementos
-                let criarItem = document.createElement('p');
-                criarItem.classList.add('mostrar-number');
-                criarItem.id = "criar-item";
-                armazena.forEach((element) => {
-                    criarItem.innerHTML = `${element}`
-                  //NA PROXIMA FASE, OS ELEMENTO TEM QUE IR LIMPO
-              });
-              document.getElementById("show-number").appendChild(criarItem);
-              minTentativa++; //coloquei a variavel fora da funçao e toda vez que a funçao termina adiciona um.
-              tentativa.innerHTML = minTentativa;
-            
-        ////fim do array
 
-      }
-
-      let fase = 1;
-      function nextFase(){
-          //limpar tudo, zerar tentativa, texto e gerar novo numero de uma nova fase
+    document.getElementById("show-number").appendChild(criarItem);
+}
+let fase = 1;
+    function nextFase(){
         fase++;
         document.getElementById('fase').innerHTML = fase;
-        
-        gerarNumeroFaseUm()
+        gerarNumero();
+     
       }
-      const teclaEnter = (event) => {
-          const tecla = event.key;
-          if(tecla === 'Enter'){
-              validarNumero();
-              event.target.value = ""; // limpar a caixa depois de apertar enter
+
+const teclaEnter = (event) => {
+    const tecla = event.key;
+        if(tecla === 'Enter'){
+            validarNumero();
+            event.target.value = ""; // limpar a caixa depois de apertar enter
           }
-      }
-      document.getElementById('putNumber').addEventListener('keypress', teclaEnter);
-  
+}
+document.getElementById('putNumber').addEventListener('keypress', teclaEnter);
