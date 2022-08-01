@@ -6,36 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <title>Que numero eu sou?</title>
+    <title>Jogo de Adivinhação</title>
 </head>
 <body>
-    <div class="box-ten-fase">
-        <div><p>Tentativas: <span id="tentativas">5</span></p></div>
-        <div><p>Fase: <span id="fase">1</span></p></div>
-    </div>
+    <!-- <img class="fundo" src="fundo.png" alt=""> -->
     
-  
-    <img class="fundo" src="fundo.png" alt="">
-  
-    <section id="tabelajogo">
-        <div class="container">
+    
+    <main id="tabelajogo">
+        <div class="box-ten-fase">
+            <div><p>Tentativas: <span id="tentativas">5</span></p></div>
+            <div><p>Fase: <span id="fase">1</span></p></div>
+        </div>
+        <div class="container-game">
         
-            <div class="box-container">
+            <div class="box-container" id="box-container">
                 <div id="contadorRegressivo"></div>
                 <img src="titulo.png" id="pag-game" alt="" srcset="">
                 <p id="comando">Digite um número de 1 a 10 e pressione "Enter"</p>
                 <input type="number" name="numero" id="putNumber" value="" required >
                 <button onclick="gerarNumero()">Start</button>
                 <p id="pertoOuLonge"></p>
-                <button id="reiniciar">DESISTIR</button>
-                <!-- <button id="proximaFase" onclick="nextFase()">Next</button> -->
+                <a class="btn-desistir" href="index.html">Desistir ?</a>
+              
             </div>
            <div id="show-number"> </div>
         </div>
-       </section>
-       <footer id="footer-game">
-        <div class="insta">@fernandab_code</div>
-        <div class="desenvolvido"> Desenvolvido por <a href="http://">Fernanda Borges</a></div>
-       </footer>
+    </main>
+    <div id="janela-limite" class="modal">
+        <div class="box-limite">
+            <h1>GAME OVER</h1>
+            <p>Não foi dessa vez.<br> Você, infelizmente, atingiu o limite de tentativas</p>
+            <a id="btn-limite" href="index.html">Tentar novamente?</a>
+        </div>
+
+    </div>
+    <div id="janela-ganha" class="modal modal2">
+        <div class="box-ganha">
+            <h1>PARABÉNS!!!</h1>
+            <p>Você é foda! E tem uma intuição daquelas.<br>Obrigada por jogar!</p>
+            <a id="btn-ganha" href="index.html">Jogar novamente</a><br>
+            <a class="insta-game" href="https://www.instagram.com/fernandab_code/" target="_blank">Contato: @fernandab_code</a>
+           
+        </div>
+
+    </div>
+     
 </body>
 </html>

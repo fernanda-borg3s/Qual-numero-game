@@ -5,54 +5,80 @@
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
+    font-family: 'Odibee Sans', cursive;
+   
 }
 body{
-    width: 100%;
+    display: grid;
+    grid-template-areas: 
+    "main main main"
+    "footer footer footer";
+    gap: 0rem;
+    grid-template-columns: 100%;
+    grid-template-rows: 95vh auto;
+    /* background: linear-gradient(#271442ff,  #000, #172118 20%); */
+   /* overflow-x: hidden; */
+    /* width: 100%;
    height: 100vh; 
    background: linear-gradient(#271442ff,  #000);
-   overflow-x: hidden;
-   /* background-image: url(fundo1.jpg); */
-
-   
-  
-}
-img.fundo{
-   height: 99vh;
+   overflow-x: hidden; */
+   background-image: url(fundo.png);
  
-    /* animation: bgMove ease-in-out 5s infinite alternate; */
+
 }
-@keyframes bgMove{
+.grid-main {
+    grid-area: main;
+}
+  
+.grid-footer {
+    grid-area: footer;
+}
+
+/* img.fundo{
+    width: 100vw;
+    animation: bgMove ease-in-out 5s infinite alternate; 
+    
+} */
+ /* @keyframes bgMove{
     to{
         transform: rotate(0);
     }
     from{
         transform: rotate(0.5deg);
     }
-}
-div.titulo-central img{
+} */
+/* div.container{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin: auto;
+} */
+
+img.img-titulo{
     position:absolute;
     top: 5%;
-    left: 21%;
+    left: 22%;
     font-size: 30px;
     color: white;
     width: 60%;
    
 }
-section img{
+img.moutain{
     position: absolute;
-    left: 0;
-    bottom: 0;
+    bottom: 5%; 
     width: 100%;
     pointer-events: none;
     object-fit: cover;
 }
+
+
 a#btn{
     position: absolute;
     top: 37%;
-    left: 40%;
+    left: 630px;
     
 }
-a#btn button, button#reiniciar, #btn-chutar{
+a#btn button{
     padding: 15px;
     width: 200px;
     cursor: pointer;
@@ -83,47 +109,54 @@ a#btn button:hover{
     }
 }
 
- section#instruçoes{
+div.instruçoes{
     position: absolute;
-    top: 80%;
+    bottom: 5%;
     left: 10%;
     color: white;
     font-family: 'Odibee Sans', cursive;
    
 }
-#instruçoes p{
-    max-width: 90%;
-    margin: auto;
+div.instruçoes p{
+    text-transform: uppercase;
+    letter-spacing: 5px;
 
    
 }
 footer{
-    height: 100px;
     color: white;
     display: flex;
     justify-content: space-between;
     font-size: 30px;
     padding: 20px 10px;
-    background: linear-gradient(#172118 20%, #000);
+    background: linear-gradient(#172118 20%, rgb(0, 0, 0));
     font-family: 'Odibee Sans', cursive;
-} 
+    letter-spacing: 5px;
+    
+}
 footer a{
     color: inherit;
     text-decoration: none;
 }
-section#tabelajogo{
+footer a:hover{
+    text-shadow: 0 0 20px #fff;
+    color: white;
+    background-color: transparent;
+}
+
+/*************************************** SEÇAÕ JOGO */
+ /* #tabelajogo{
     position: absolute;
     top: 5%;
     left: 18%;
-}
+} */
 
 div.box-ten-fase{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-direction: row;
-    /* margin-left: 5%; */
-    width: 50%;
+    width: 100%;
     height: 50px;
     color: white;
     background-color:transparent;
@@ -131,24 +164,24 @@ div.box-ten-fase{
     text-transform: uppercase;
     font-weight: bold;
     padding: 10px;
-    position: absolute;
-    top: 2%;
-    left: 25%;
-    
+    letter-spacing: 5px;
+    margin-top: 1%;
 }
-div.container, div.box-container{
+
+div.container-game, div.box-container{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 5%;
+  
     width: 100%;
    
    
 }
+
 div.box-container{
-    margin: 0;
-    width: 80%;
+    margin: auto;
+    width: 75%;
     padding: 25px;
     border: 2px solid #c86b98;
     background: rgba(255, 255, 255, 0.008);
@@ -157,22 +190,31 @@ div.box-container{
    
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
+    letter-spacing: 5px;
 }
+div#contadorRegressivo{
+    color: white;
+    font-size: 28px;
+}
+/* 
 div img#pag-game{
     width: 100%;
     position: unset;
-}
-div.container p {
+}*/
+div.container-game p {
     max-width: 100%;
     color: white;
     text-align: center;
     margin: 10px;
     font-size: 30px;
+   
+    text-transform: uppercase;
 }
-div.container input{
-    width: 15%;
-    height: 80px;
-    padding: 20px;
+
+div.container-game input{
+    width: 10%;
+    height: 70px;
+    padding: 10px;
     font-size: 30px;
     border: 1px solid #ffc1a0;
     margin: 10px;
@@ -180,49 +222,114 @@ div.container input{
     overflow: hidden;
 }
 /* esconder scroll do input tipo number */
-div.container input::-webkit-outer-spin-button,
-div.container input::-webkit-inner-spin-button {
+div.container-game input::-webkit-outer-spin-button,
+div.container-game input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-div.container input:focus{
-    outline:  #c86b98;
-}
-button#reiniciar, #btn-chutar{
-    font-size: 15px;
-    box-shadow: none;
-    margin-top: 30px;
+/* button#reiniciar{
+    font-size: 30px;
+    background-color: transparent;
+    border: none;
+    color: #280f36;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 3px;
+   
     display: none;
 }
-#btn-chutar{
-    display: block;
-}
-#proximaFase{
-    display: none;
-}
+button#reiniciar:hover{
+   background-color:  #ffc1a0;
+} */
 div#show-number{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    max-width: 660px;
+    max-width: 80%;
     align-items: center;
     justify-content:center;
 }
 p.mostrar-number{
     text-align: center;
     font-size: 25px;
-    background-color: #280f36;
+    background-color: #280f3684;
     border-radius: 5px;
     padding: 5px;
-    margin: 5px 2px;
-
-    
-  
 }
-footer#footer-game{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background: transparent;
+.modal {
+    background-color: rgba(166, 20, 20, 0.522);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-width: 100%;
+    height: 100vh; 
+    min-height: 100%;
+    z-index: 2;
+    /* display: none; */
+}
+.modal2{
+    background-color: rgba(53, 56, 55, 0.522);
+}
+
+/* .modal:active{
+display: block;
+}  */
+.box-limite, .box-ganha {
+    margin:  auto;
+    margin-top: 10%;
+    width: 35%;
+    height: 38%;
+    background-color: #280f36;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+.box-ganha{
+    height: 55%;
+}
+.box-limite h1, .box-ganha h1{
+    font-size: 50px;
+    color: #fa0b0bcf;
+  }
+.box-limite p, .box-ganha p{
+    font-size: 30px;
+    margin: 20px;
+    letter-spacing: 3px;
+}
+.box-ganha p{
+    font-size: 40px;
+    line-height: 50px;
+    margin-bottom: 10%;
+}
+.box-limite a, .box-ganha a, a.btn-desistir{
+    font-size: 28px;
+    text-transform: uppercase;
+    color: #fd9c7f;
+    margin: 10%;
+    letter-spacing: 2px;
+   
+}
+.box-ganha a{
+    font-size: 38px;
+    margin-bottom: 10%;
+
+}
+.box-limite a:hover, .box-ganha a:hover, a.btn-desistir:hover{
+    letter-spacing: 5px;
+    color: #c86b98;
+}
+
+.box-ganha a.insta-game{
+    font-size: 18px;
+    color: #ffc1a0;
+    line-height: 50px;
+}
+.box-ganha a.insta-game:hover{
+    color: antiquewhite;
+}
+.box-ganha h1{
+    color: #34c81d;
 }

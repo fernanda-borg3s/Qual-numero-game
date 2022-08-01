@@ -8,27 +8,39 @@
     <script src="script.js"></script>
     <!-- bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <title>Que número eu sou?</title>
+    <title>Jogo de Adivinhação</title>
 </head>
 <body>
-    <img class="fundo" src="fundo.png" alt="">
-    <div class="titulo-central">
-       <img src="titulo.png" alt="" srcset="">
-    </div>
-      <div> <a id="btn" href="http://"><button onclick="gerarNumeroFaseUm()">Start</button></a></div> 
+    <!-- <img class="fundo" src="fundo.png" alt=""> -->
+
+ 
+
+    <main class="grid-main">
+        <!-- <img class="fundo" src="fundo.png" alt=""> -->
+       
+            <div class="titulo-central">
+                <img src="titulo.png" class="img-titulo" alt="" srcset="">
+             </div>
+               <div> <a id="btn" href="game.html"><button onclick="gerarNumeroFaseUm()">Start</button></a></div> 
+               <img class="moutain" src="mountain.png" alt="" srcset="">
+        
+               <div class="instruçoes">
+                <h1>Como jogar?</h1>
+                <p>Leia o comando e tente adivinhar o número sorteado. Mas <strong>Atenção!</strong> Existe limite de tentativas que diminuem a cada chute errado.</p>
+                <div class="btn-som">Botao de musica e efeito</div>
+               </div>
+    </main>
     
-    <section>
-        <img class="moutain" src="mountain.png" alt="" srcset="">
-    </section>
-   <section id="instruçoes">
-    <h1>Como jogar?</h1>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus pariatur culpa autem excepturi laborum consequatur vero ipsa, iure, optio provident doloremque? Consectetur error maiores, delectus nulla praesentium nemo? Corporis, deleniti. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem ratione nesciunt adipisci sapiente consectetur tempore animi nemo facilis possimus fuga! Voluptas consequatur laborum non recusandae, est ab! Minus, est ipsa.</p>
-   </section>
+    <footer>
+
+           <div class="insta"><a href="https://www.instagram.com/fernandab_code/" target="_blank">@fernandab_code</a></div>
+           <div class="desenvolvido"> Desenvolvido por <a href="https://fernanda-portifolio-cv.netlify.app/" target="_blank">Fernanda Borges</a></div>
+    </footer>
+   
 
 
-   <footer>
-    <div class="insta">@fernandab_code</div>
-    <div class="desenvolvido"> Desenvolvido por <a href="http://">Fernanda Borges</a></div>
-   </footer>
+
+   
+  
 </body>
 </html>
