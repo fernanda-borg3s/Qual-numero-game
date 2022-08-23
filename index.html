@@ -5,42 +5,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <!-- bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <title>Jogo de Adivinhação</title>
 </head>
 <body>
-    <!-- <img class="fundo" src="fundo.png" alt=""> -->
+   
+    <main>
+        <nav>
+            <div>
+                <p><a href="https://www.instagram.com/fernandab_code/">@fernandab_code</a></p>
+            </div>
+            <div>
+                <ul>
+                    <li><button>Como Jogar?</button></li>
+                    <!-- <p>Leia o comando e tente adivinhar o número sorteado. Mas <strong>Atenção!</strong> Existe limite de tentativas que diminuem a cada chute errado.</p> -->
+                    <li><button>Contato</button></li>
+                    <li><button id="music">Music</button></li>
+                    <li> <button id="efeito-som">Som</button></li>
+                </ul>
+                
+               
+            </div>
+        </nav>
+        <section class="main">
+            <div class="titulo" id="titulo-inicio">
+             <h1>Adivinhe o</h1>
+             <h2>0000 Número</h2>
+             <button id="btn-jogar" onclick="gerarNumero()">JOGAR</button>
+            </div>
 
- 
-
-    <main class="grid-main">
-        <!-- <img class="fundo" src="fundo.png" alt=""> -->
-       
-            <div class="titulo-central">
-                <img src="titulo.png" class="img-titulo" alt="" srcset="">
-             </div>
-               <div> <a id="btn" href="game.html"><button onclick="gerarNumeroFaseUm()">Start</button></a></div> 
-               <img class="moutain" src="mountain.png" alt="" srcset="">
-        
-               <div class="instruçoes">
-                <h1>Como jogar?</h1>
-                <p>Leia o comando e tente adivinhar o número sorteado. Mas <strong>Atenção!</strong> Existe limite de tentativas que diminuem a cada chute errado.</p>
-                <div class="btn-som">Botao de musica e efeito</div>
+            <div id="container-jogo">
+                <div class="box-ten-fase">
+                    <div><p>Tentativas: <span id="tentativas">5</span></p></div>
+                    <div><p>Fase: <span id="fase">1</span></p></div>
+                </div>
+             
+                    <div class="box-container" id="box-container">
+                        <div id="contadorRegressivo"></div>
+                   
+                        <p id="comando">Digite um número de 1 a 10 e pressione "Enter"</p>
+                        <input type="number" name="numero" id="putNumber" value="" required ><br>
+                        <p id="pertoOuLonge"></p>
+                        <a class="btn-desistir" href="index.html">Desistir ?</a>
+                      
+                    </div>
+                   <div id="show-number"></div>
+            
+            </div>
+         </section>
+         <section id="img-inicio">
+            <div class="img-titulo">
+                <img src="inicio.png" alt="" srcset="">
                </div>
+         </section>
+         <footer>
+           <a href="https://fernanda-portifolio-cv.netlify.app/" target="_blank">&#169 Desenvolvido por Fernanda Borges</a>
+        </footer>
     </main>
+    <section id="janela-modal">
+        <div id="janela-limite" class="modal">
+            <div class="box-limite">
+                <h1>GAME OVER</h1>
+                <p>Não foi dessa vez.<br> Você, infelizmente, atingiu o limite de tentativas</p>
+                <a id="btn-limite" href="index.html">Tentar novamente?</a>
+            </div>
     
-    <footer>
-
-           <div class="insta"><a href="https://www.instagram.com/fernandab_code/" target="_blank">@fernandab_code</a></div>
-           <div class="desenvolvido"> Desenvolvido por <a href="https://fernanda-portifolio-cv.netlify.app/" target="_blank">Fernanda Borges</a></div>
-    </footer>
+        </div>
+        <div id="janela-ganha" class="modal modal2">
+            <div class="box-ganha">
+                <h1>PARABÉNS!!!</h1>
+                <p>Você é foda! E tem uma intuição daquelas.<br>Obrigada por jogar!</p>
+                <a id="btn-ganha" href="index.html">Jogar novamente</a><br>
+                <a class="insta-game" href="https://www.instagram.com/fernandab_code/" target="_blank"> @fernandab_code</a>
+               
+            </div>
+    
+        </div>
+    </section>
+ 
    
-
-
-
    
-  
 </body>
 </html>

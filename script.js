@@ -1,6 +1,13 @@
 
 //definir som de erro e acerto
 //colocar musica
+
+// const abrirGame = () => {
+//   window.location.replace("game.html");
+//   gerarNumero();
+// }
+let showHideJogo = document.getElementById('container-jogo');
+showHideJogo.style.display = "none"
 let limite = document.getElementById("janela-limite");
 
 let duraçao = 45;
@@ -19,7 +26,7 @@ function startTimer(duraçao) {
         limite.style.display = "block";
       }else if(tempo < 10){
         display.style.color = "red";
-        document.getElementById("box-container").style.boxShadow = "0 8px 32px 0 red";
+        document.getElementById("container-jogo").style.background = "#ff4141";
 
       }
       // colocar o negocio aqui para reiniciar o jogo
@@ -42,7 +49,8 @@ function verificarTentativa(){
 
 
 function gerarNumero() {
- 
+document.getElementById("titulo-inicio").style.display = "none";
+showHideJogo.style.display = "block"
   // gerar numero secreto
   let comando = document.getElementById('comando');
 
@@ -76,7 +84,8 @@ function gerarNumero() {
     case 5:
       numeroSecreto = Math.floor(Math.random() * 1000 + 1);
         console.log(numeroSecreto);
-        comando.innerHTML = "Agora quero ver acertar essa. Digite um número de 1 a 1000. Atenção com o tempo!";
+        comando.innerHTML = "Digite um número de 1 a 1000. Atenção com o tempo!";
+        maxTentativa = 1000;
         tentativa.style.display = "none";
         startTimer(duraçao);
         break;
@@ -90,6 +99,7 @@ let armazena = [];
       let numPertoLonge = document.getElementById('pertoOuLonge');
       let ganhador = document.getElementById('janela-ganha');
       let desaparecerJogo = document.getElementById('tabelajogo');
+
         armazena.push(inputNumero)/// array para armazenar numero digitados
         let criarItem = document.createElement('p');  //criar os elementos
         criarItem.classList.add('mostrar-number');
@@ -111,7 +121,7 @@ let armazena = [];
              nextFase();
              if(fase == 6){ 
              ganhador.style.display = "block";
-              desaparecerJogo.style.display = "none" 
+              desaparecerJogo.style.display = "none"; 
              }
           
              
