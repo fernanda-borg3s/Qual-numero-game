@@ -11,31 +11,27 @@
     <title>Jogo de Adivinhação</title>
 </head>
 <body>
-   
+    <nav>
+        <div>
+            <p><a href="https://www.instagram.com/fernandab_code/">@fernandab_code</a></p>
+        </div>
+        <div>
+            <audio src="img/bgMusic.mp3" loop ></audio>
+            <img class="icon-music" id="music" src="img/icon-music.png">
+            <img class="icon-no-music" id="noMusic" src="img/no-music.png">
+        </div>
+    </nav>
     <main>
-        <nav>
-            <div>
-                <p><a href="https://www.instagram.com/fernandab_code/">@fernandab_code</a></p>
-            </div>
-            <div>
-                <ul>
-                    <li><button>Como Jogar?</button></li>
-                    <!-- <p>Leia o comando e tente adivinhar o número sorteado. Mas <strong>Atenção!</strong> Existe limite de tentativas que diminuem a cada chute errado.</p> -->
-                    <li><button>Contato</button></li>
-                    <li><button id="music">Music</button></li>
-                    <li> <button id="efeito-som">Som</button></li>
-                </ul>
-                
-               
-            </div>
-        </nav>
-        <section class="main">
+        <div class="container-start" id="frame-start">
             <div class="titulo" id="titulo-inicio">
-             <h1>Adivinhe o</h1>
-             <h2>0000 Número</h2>
-             <button id="btn-jogar" onclick="gerarNumero()">JOGAR</button>
+                <h1>Adivinhe o</h1>
+                <h2>0000 Número</h2>
+                <h3>Como Jogar?</h3>
+                <p>Leia o comando e tente adivinhar o número sorteado. Mas <strong>Atenção!</strong> Existe limite de tentativas que diminuem a cada chute errado.</p>
+                <h4>Boa Sorte!</h4>
+                <button id="btn-jogar" >Jogar</button>
+                
             </div>
-
             <div id="container-jogo">
                 <div class="box-ten-fase">
                     <div><p>Tentativas: <span id="tentativas">5</span></p></div>
@@ -46,24 +42,22 @@
                         <div id="contadorRegressivo"></div>
                    
                         <p id="comando">Digite um número de 1 a 10 e pressione "Enter"</p>
-                        <input type="number" name="numero" id="putNumber" value="" required ><br>
+                        <input type="number" name="numero" id="putNumber" value="" required placeholder="Nº"><br>
                         <p id="pertoOuLonge"></p>
                         <a class="btn-desistir" href="index.html">Desistir ?</a>
                       
                     </div>
                    <div id="show-number"></div>
-            
             </div>
-         </section>
-         <section id="img-inicio">
-            <div class="img-titulo">
-                <img src="inicio.png" alt="" srcset="">
-               </div>
-         </section>
+
+        </div>
+    
          <footer>
            <a href="https://fernanda-portifolio-cv.netlify.app/" target="_blank">&#169 Desenvolvido por Fernanda Borges</a>
         </footer>
     </main>
+
+
     <section id="janela-modal">
         <div id="janela-limite" class="modal">
             <div class="box-limite">
@@ -78,7 +72,13 @@
                 <h1>PARABÉNS!!!</h1>
                 <p>Você é foda! E tem uma intuição daquelas.<br>Obrigada por jogar!</p>
                 <a id="btn-ganha" href="index.html">Jogar novamente</a><br>
-                <a class="insta-game" href="https://www.instagram.com/fernandab_code/" target="_blank"> @fernandab_code</a>
+                <div class="redes">
+                    <a class="insta-game" href="https://www.instagram.com/fernandab_code/" target="_blank"> <img src="img/instagram.png" alt="" srcset=""></a>
+                    <a class="insta-game" href="https://github.com/fernanda-borg3s" target="_blank"> <img src="img/github.png" alt="" srcset=""></a>
+                    <a class="insta-game" href="https://www.linkedin.com/in/fernanda-borges-512b4a1b8/" target="_blank"> <img src="img/linkedin.png" alt="" srcset=""></a>
+                    <a class="insta-game" href="https://fernandaborges-portifolio.netlify.app/" target="_blank"> <img src="img/www.png" alt="" srcset=""></a>
+                </div>
+           
                
             </div>
     

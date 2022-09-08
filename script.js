@@ -1,132 +1,139 @@
 
-//definir som de erro e acerto
-//colocar musica
-
-// const abrirGame = () => {
-//   window.location.replace("game.html");
-//   gerarNumero();
-// }
 let showHideJogo = document.getElementById('container-jogo');
-showHideJogo.style.display = "none"
+    showHideJogo.style.display = "none";
 let limite = document.getElementById("janela-limite");
 
-let duraçao = 45;
-function startTimer(duraçao) {
-  let tempo = duraçao, segundos;
-  let display = document.querySelector('#contadorRegressivo');
- 
-    setInterval(function () {
-      segundos = parseInt(tempo % 60, 10);
-      segundos = segundos < 10 ? "0" + segundos : segundos;
-      display.textContent = "00:" + segundos;
-      // --tempo
-      if(--tempo < 0){
-        tempo = duraçao;
-        tempo = "";
-        limite.style.display = "block";
-      }else if(tempo < 10){
-        display.style.color = "red";
-        document.getElementById("container-jogo").style.background = "#ff4141";
+//FUNÇÃO ATIVAR E DESATIVAR AUDIO
+let iconNoMusic = document.getElementById("noMusic");
+let desaparecerIconMusic = document.getElementById("music");
+let audioOn = document.querySelector('audio');
+    audioOn.play();
+  const noMusic = desaparecerIconMusic.addEventListener('click', function(){
+    iconNoMusic.style.display = "block";
+    desaparecerIconMusic.style.display = "none"
+    audioOn.pause();
+  });
 
+  const onMusic = iconNoMusic.addEventListener('click', function(){
+    iconNoMusic.style.display = "none";
+    desaparecerIconMusic.style.display = "block"
+    audioOn.play();
+  })
+
+
+//TEMPO DA FASE 5
+let duraçao = 45;
+    function startTimer(duraçao) {
+        let tempo = duraçao, segundos;
+        let display = document.querySelector('#contadorRegressivo');
+      
+          setInterval(function () {
+            segundos = parseInt(tempo % 60, 10);
+            segundos = segundos < 10 ? "0" + segundos : segundos;
+            display.textContent = "00:" + segundos;
+              if(--tempo < 0){
+                tempo = duraçao;
+                tempo = "";
+                limite.style.display = "block";
+              }else if(tempo < 10){
+                display.style.color = "red";
+                document.getElementById("frame-start").style.boxShadow = "2px 0px 30px #ff4141";
+              }
+          }, 1000);  
       }
-      // colocar o negocio aqui para reiniciar o jogo
-  }, 1000);
- 
-   
-}
+
 let maxTentativa = 5;
 let tentativa = document.getElementById('tentativas');
-function verificarTentativa(){
-   
-  if(maxTentativa > 0){
-    --maxTentativa;
-  }else{
-    limite.style.display = "block";
-    console.log("Atigiu o limite de tentivas")
-  }
-  tentativa.innerHTML = maxTentativa;
-}
+    function verificarTentativa(){
+      if(maxTentativa > 0){
+        --maxTentativa;
+      }else{
+        limite.style.display = "block";
+        console.log("Atigiu o limite de tentivas")
+      }
+      tentativa.innerHTML = maxTentativa;
+    }
 
 
 function gerarNumero() {
-document.getElementById("titulo-inicio").style.display = "none";
-showHideJogo.style.display = "block"
-  // gerar numero secreto
-  let comando = document.getElementById('comando');
+    document.getElementById("titulo-inicio").style.display = "none";
+    showHideJogo.style.display = "block"
+    // GERAR NUMERO SECRETO
+let comando = document.getElementById('comando');
+let ganhador = document.getElementById('janela-ganha');
+let desaparecerJogo = document.getElementById('tabelajogo');
 
-  switch (fase){
-    case 1:
-      numeroSecreto = Math.floor(Math.random() * 10 + 1);
-      console.log(numeroSecreto)
-     
+    switch (fase){
+      case 1:
+        numeroSecreto = Math.floor(Math.random() * 10 + 1);
+        console.log(numeroSecreto)
       break;
-    case 2:
-      numeroSecreto = Math.floor(Math.random() * 50 + 1);
-      console.log( numeroSecreto);
-      comando.innerHTML = "Digite um número de 1 a 50";
-      maxTentativa = 10 + 1;
-      verificarTentativa();
+      case 2:
+        numeroSecreto = Math.floor(Math.random() * 50 + 1);
+        console.log( numeroSecreto);
+        comando.innerHTML = "Digite um número de 1 a 50";
+        maxTentativa = 10 + 1;
+        verificarTentativa();
       break;
-    case 3:
-      numeroSecreto = Math.floor(Math.random() * 100 + 1);
-      console.log( numeroSecreto);
-      comando.innerHTML = "Digite um número de 1 a 100";
-      maxTentativa = 20 + 1;
-      verificarTentativa();
+      case 3:
+        numeroSecreto = Math.floor(Math.random() * 100 + 1);
+        console.log( numeroSecreto);
+        comando.innerHTML = "Digite um número de 1 a 100";
+        maxTentativa = 20 + 1;
+        verificarTentativa();
       break;
-    case 4:
-      numeroSecreto = Math.floor(Math.random() * 500 + 1);
+      case 4:
+        numeroSecreto = Math.floor(Math.random() * 500 + 1);
         console.log(numeroSecreto);
         comando.innerHTML = "Digite um número de 1 a 500";
         maxTentativa = 10 + 1;
         verificarTentativa();
-        break;
-    case 5:
-      numeroSecreto = Math.floor(Math.random() * 1000 + 1);
+      break;
+      case 5:
+        numeroSecreto = Math.floor(Math.random() * 1000 + 1);
         console.log(numeroSecreto);
         comando.innerHTML = "Digite um número de 1 a 1000. Atenção com o tempo!";
         maxTentativa = 1000;
         tentativa.style.display = "none";
         startTimer(duraçao);
-        break;
-      
-  } 
-
+      break;
+    } 
+    //acertou na fase 5, encerra o jogo.
+      if(fase == "6"){ 
+        ganhador.style.display = "block";
+        desaparecerJogo.style.display = "none"; 
+      }
 }
+document.getElementById("btn-jogar").addEventListener("click", gerarNumero);
+
 let armazena = [];
     function validarNumero (){
       let inputNumero = parseInt(document.getElementById('putNumber').value);
       let numPertoLonge = document.getElementById('pertoOuLonge');
-      let ganhador = document.getElementById('janela-ganha');
-      let desaparecerJogo = document.getElementById('tabelajogo');
-
-        armazena.push(inputNumero)/// array para armazenar numero digitados
-        let criarItem = document.createElement('p');  //criar os elementos
-        criarItem.classList.add('mostrar-number');
-        criarItem.id = "criar-item";
-        armazena.forEach((element) => {
-          if (!!inputNumero == false) {
-            criarItem.classList.remove('mostrar-number');  
-          }
-           else{criarItem.innerHTML = `${element}`
-          }      
-      });
-         if(inputNumero === numeroSecreto){
+      let mostrarNumeroDigitado = document.getElementById("show-number");
+    
+            armazena.push(inputNumero)/// array para armazenar numero digitados
+            let criarItem = document.createElement('p');  //criar os elementos
+            criarItem.classList.add('mostrar-number');
+            criarItem.id = "criar-item";
+            armazena.forEach((element) => {
+              if (!!inputNumero == false) {
+                criarItem.classList.remove('mostrar-number');  
+              }
+              else{criarItem.innerHTML = `${element}`
+              }      
+          });
+          //conferir se o número e igual ao nº secreto
+        if(inputNumero === numeroSecreto){
             console.log("acertou");
                  armazena.length = 0;
-                 document.getElementById("show-number").innerHTML = armazena;
+                 mostrarNumeroDigitado.innerHTML = armazena;
                     criarItem.classList.remove('mostrar-number');
                     criarItem.innerHTML = "";
                     numPertoLonge.style.display = "none"; 
-             nextFase();
-             if(fase == 6){ 
-             ganhador.style.display = "block";
-              desaparecerJogo.style.display = "none"; 
-             }
-          
-             
+             nextFase();   
         }else if(inputNumero !== numeroSecreto){ 
-          numPertoLonge.style.display = "block"
+            numPertoLonge.style.display = "block"
               if(inputNumero > numeroSecreto){
                 numPertoLonge.innerHTML = "O número é menor"
                verificarTentativa(); 
@@ -134,21 +141,17 @@ let armazena = [];
                 numPertoLonge.innerHTML = "O número é maior";
                 verificarTentativa(); 
               }
-              //vou deixar esse else aqui por enquanto, mas parece que ele nao é necessario
-        }else {
-          
-          alert("DIGITE UM NÚMERO VÁLIDO")
-        }
-
-    document.getElementById("show-number").appendChild(criarItem);
+              }else {
+                alert("DIGITE UM NÚMERO VÁLIDO")
+    }
+                mostrarNumeroDigitado.appendChild(criarItem);
 }
+//FUNÇAO PASSAR DE FASE
 let fase = 1;
-
     function nextFase(){
         fase++;
         document.getElementById('fase').innerHTML = fase;
         gerarNumero();
-      
       }
 
 const teclaEnter = (event) => {

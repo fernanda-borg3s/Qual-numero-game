@@ -1,92 +1,120 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&family=Odibee+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Oswald:wght@300;400;500;700&display=swap');
 *{
     margin: 0;
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
     font-family: 'Odibee Sans', cursive;
-   
+     color: var(--letter-color);
+}
+.titulo h3, .titulo h4, .titulo p, #comando, #pertoOuLonge, .box-limite p, .box-ganha p{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+}
+:root{
+    --letter-color: #1E1E1E;
+}
+body{
+    background: rgb(162,210,255);
+    background: linear-gradient(0deg, rgba(162,210,255,1) 0%, rgba(205,180,219,1) 47%);
 }
 main{
     width: 100%;
-    height: 100vh;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 8% 84% 8%;
-    grid-template-areas: "header-nav header-nav" 
-                         "titulo imagem" 
-                        "footer footer" ;
-                       
+    height:110vh ;     
 }
 nav{
-    grid-area: header-nav;
-    background-color: #fff;
+    background-color: transparent;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 24px;
+    font-size: 35px;
     padding-top: 10px;
- 
 }
-div a{
+nav div a{
     text-decoration: none;
-    color: #000;
-    padding-left: 20px;
+    color: var(--letter-color);
+    margin-left: 50px;
 }
-div a:hover{
-    color: #AF08AD;
+nav div a:hover, img.icon-music:hover{
+    cursor: pointer;
 }
-div ul li{
-    display: inline-block;
-    padding-right: 30px;
+img.icon-music, img.icon-no-music{
+    width:45px;
+    margin-right: 50px;
 }
-ul li button{
-    width:158px;
-    border: none;
+img.icon-no-music{
+    display: none;
+    cursor:pointer;
 }
-button{
-    background-color: #AF08AD;
-    color: #fff;
-}
-section.main{
-    grid-area: titulo;
-    display: flex;
-    flex-direction: column;
+
+div.container-start{
+    position:relative;
+    top:0%;
+    left:32%;
+    width:550px;
+    height:90vh;
+    box-shadow: 2px 0px 30px rgba(0,0,0,0.3);
+      background: rgb(255,255,255,0.1);
+      padding: 40px;
 }
 div.titulo{
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 70%;
+    width: 100%;
     margin: auto;
 }
-div.titulo h1{
-    margin: auto;
-    font-size: 150px;
+.titulo h1{
+    font-size: 120px;
 }
-div.titulo h2{
+.titulo h2{
     font-size: 90px;
     text-align: right;
     line-height: 10px;
-    margin-bottom: 25%;
+    margin-bottom: 20%;
 }
-
+.titulo h4{
+    text-align: right;
+}
+.titulo p{
+  letter-spacing: 1.2px;
+  text-align: justify;
+}
 button#btn-jogar{
-  width: 50%;
-  height: 10%;
-  font-size: 24px;
-  
+  width: 70%;
+  height: 50px;
+  font-size: 28px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  background: #A2D2FF;
+  border: 1px solid rgba(0, 0, 0, 0.411);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+}
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 100px auto;
+    width: 100%;
+}
+footer a{
+    text-decoration: none;
+    color: var(--letter-color);
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+footer a:hover{
+    color:  #475c70;
+    letter-spacing: 3px;
 }
 div#container-jogo{
-    height: 100vh;
-    font-size: 50px;
- 
+    font-size: 40px;
 }
 div.box-ten-fase{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     text-transform: uppercase;
     letter-spacing: 2px;
    
@@ -101,16 +129,18 @@ div.box-container{
     text-align: center;
 }
 div#contadorRegressivo{
-    color: #01E7C0;
+    color: inherit;
     font-size: 28px;
-    background-color: rgba(255, 255, 255, 0.36);
+}
+.box-container #comando{
+    font-size: 30px;
+    margin:30px;
 }
 div.box-container input{
-    width: 15%;
+    width: 20%;
     text-align: center;
-    background-color: #AF08AD;
-    border: none;
-    color: #fff;
+    background-color: transparent;
+    border: 2px solid rgba(0,0,0,0.3);
 }
 /* esconder scroll do input tipo number */
 div.box-container input::-webkit-outer-spin-button,
@@ -121,6 +151,7 @@ div.box-container input::-webkit-inner-spin-button {
 p#pertoOuLonge{
     padding: 0;
     font-size: 33px;
+    margin-top: -50px;
 }
 div#show-number{
     display: flex;
@@ -129,47 +160,26 @@ div#show-number{
     max-width: 100%;
     align-items: center;
     justify-content:center;
+    position:relative;
+
 }
 p.mostrar-number{
     text-align: center;
     font-size: 25px;
-    background-color: #af08ac89;
+    background-color: #cdb4db;
     border-radius: 5px;
     padding: 5px;
     margin: 2px;
 }
-section#img-inicio{
-    grid-area: imagem;
-    background-color: #AF08AD;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} 
-
-footer{
-    grid-area: footer;
-    background-color: #AF08AD;
-    text-align: center;
-    padding: 12px;
-    
+a.btn-desistir{
+ text-decoration: none;
+ color:inherit;
+ padding: 0 15px;
+ margin-bottom: 15px;
 }
-footer a{
-    text-decoration: none;
-    color:#fff ;
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-
-
-}
-footer a:hover{
-    color: black;
-    letter-spacing: 3px;
-}
-
 .modal {
     display: block;
-    background-color: rgba(166, 20, 20, 0.726);
+    background-color: rgba(0, 0, 0, 0.781);
     position: fixed;
     top: 0;
     left: 0;
@@ -178,10 +188,9 @@ footer a:hover{
     height: 100vh; 
     min-height: 100%;
     z-index: 2;
-
 }
 .modal2{
-    background-color: rgba(7, 233, 48, 0.522);
+    background-color: #cdb4db;
 }
 
 .box-limite, .box-ganha {
@@ -189,8 +198,8 @@ footer a:hover{
     margin-top: 10%;
     width: 50%;
     height: 50%;
-    background-color: #af08acf1;
-    color: white;
+   background-color: #cdb4dbd3;
+    color: inherit;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -198,13 +207,14 @@ footer a:hover{
 
 .box-limite h1, .box-ganha h1{
     font-size: 50px;
-    color: #fa0b0b;
-    text-shadow: 0px 3px #000;
+    color: #ff0000;
+    letter-spacing: 3px;
+    text-shadow: 1px 3px 0px #000;
   }
 .box-limite p, .box-ganha p{
-    font-size: 30px;
+    font-size: 35px;
     margin: 20px;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
 }
 .box-ganha p{
     font-size: 40px;
@@ -217,23 +227,51 @@ footer a:hover{
     margin: 10%;
     letter-spacing: 2px;
    transition: 1s;
+   text-decoration: none;
+   color: #fff;
+    text-shadow: -1px 1px 0px #1E1E1E;
 }
 .box-ganha a{
     font-size: 38px; 
 
 }
 .box-limite a:hover, .box-ganha a:hover, a.btn-desistir:hover{
+    color:  #475c70;
     letter-spacing: 5px;
-    color: #01E7C0;
 }
-
-.box-ganha a.insta-game{
-    font-size: 18px;
-    color: #01E7C0;
+div.redes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10%;
+    margin:auto;
 }
-.box-ganha a.insta-game:hover{
-    color: antiquewhite;
+div.redes a img{
+    margin-top:20px;
+    width: 64px;
+}
+.redes a img:hover{
+    transform: scale(1.1);
 }
 .box-ganha h1{
     color: #34c81d;
+}
+@media (max-width: 850px){
+    .box-limite{
+        margin: 80px;
+        height: 350px;
+    }
+    .box-limite a, .box-ganha a {
+        font-size: 28px;
+      
+    }
+    .box-limite p, .box-ganha p{
+        font-size: 24px;
+        margin: 0px;
+        letter-spacing: 1px;
+    }
+    div.redes a img{
+        margin-top:5px;
+        width: 24px;
+    }
 }
