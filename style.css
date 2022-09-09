@@ -47,7 +47,6 @@ img.icon-no-music{
     display: none;
     cursor:pointer;
 }
-
 div.container-start{
     position:relative;
     top:0%;
@@ -160,8 +159,6 @@ div#show-number{
     max-width: 100%;
     align-items: center;
     justify-content:center;
-    position:relative;
-
 }
 p.mostrar-number{
     text-align: center;
@@ -204,7 +201,6 @@ a.btn-desistir{
     border-radius: 10px;
     text-align: center;
   }
-
 .box-limite h1, .box-ganha h1{
     font-size: 50px;
     color: #ff0000;
@@ -219,7 +215,6 @@ a.btn-desistir{
 .box-ganha p{
     font-size: 40px;
     line-height: 50px;
-   
 }
 .box-limite a, .box-ganha a {
     font-size: 28px;
@@ -233,7 +228,6 @@ a.btn-desistir{
 }
 .box-ganha a{
     font-size: 38px; 
-
 }
 .box-limite a:hover, .box-ganha a:hover, a.btn-desistir:hover{
     color:  #475c70;

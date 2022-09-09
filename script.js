@@ -49,7 +49,6 @@ let tentativa = document.getElementById('tentativas');
         --maxTentativa;
       }else{
         limite.style.display = "block";
-        console.log("Atigiu o limite de tentivas")
       }
       tentativa.innerHTML = maxTentativa;
     }
@@ -66,32 +65,27 @@ let desaparecerJogo = document.getElementById('tabelajogo');
     switch (fase){
       case 1:
         numeroSecreto = Math.floor(Math.random() * 10 + 1);
-        console.log(numeroSecreto)
       break;
       case 2:
         numeroSecreto = Math.floor(Math.random() * 50 + 1);
-        console.log( numeroSecreto);
         comando.innerHTML = "Digite um número de 1 a 50";
         maxTentativa = 10 + 1;
         verificarTentativa();
       break;
       case 3:
         numeroSecreto = Math.floor(Math.random() * 100 + 1);
-        console.log( numeroSecreto);
         comando.innerHTML = "Digite um número de 1 a 100";
         maxTentativa = 20 + 1;
         verificarTentativa();
       break;
       case 4:
         numeroSecreto = Math.floor(Math.random() * 500 + 1);
-        console.log(numeroSecreto);
         comando.innerHTML = "Digite um número de 1 a 500";
         maxTentativa = 10 + 1;
         verificarTentativa();
       break;
       case 5:
         numeroSecreto = Math.floor(Math.random() * 1000 + 1);
-        console.log(numeroSecreto);
         comando.innerHTML = "Digite um número de 1 a 1000. Atenção com o tempo!";
         maxTentativa = 1000;
         tentativa.style.display = "none";
@@ -125,7 +119,6 @@ let armazena = [];
           });
           //conferir se o número e igual ao nº secreto
         if(inputNumero === numeroSecreto){
-            console.log("acertou");
                  armazena.length = 0;
                  mostrarNumeroDigitado.innerHTML = armazena;
                     criarItem.classList.remove('mostrar-number');
