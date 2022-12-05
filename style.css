@@ -29,23 +29,22 @@ main{
 }
 nav{
     background-color: transparent;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 35px;
-    padding-top: 10px;
+    font-size: 2.18rem;
+    padding-top: 5px;
+    width: 100%;
+    text-align: center;
 }
 nav div a{
     text-decoration: none;
     color: var(--letter-color);
-    margin-left: 50px;
+    /* margin-left: 50px; */
 }
 nav div a:hover{
     cursor: pointer;
 }
 
 div.container-start{
-    width:550px;
+    width:100%;
     height:90vh;
     box-shadow: 2px 0px 30px rgba(0,0,0,0.3);
       background: rgb(255,255,255,0.1);
@@ -94,7 +93,7 @@ footer{
 footer a{
     text-decoration: none;
     color: var(--letter-color);
-    font-size: 24px;
+    font-size: 1.5rem;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -103,7 +102,7 @@ footer a:hover{
     letter-spacing: 3px;
 }
 div#container-jogo{
-    font-size: 40px;
+    font-size: 2.5rem;
 }
 div.box-ten-fase{
     display: flex;
@@ -123,10 +122,10 @@ div.box-container{
 }
 div#contadorRegressivo{
     color: inherit;
-    font-size: 28px;
+    font-size: 1.75rem;
 }
 .box-container #comando{
-    font-size: 30px;
+    font-size: 1.8rem;
     margin:30px;
 }
 div.box-container input{
@@ -245,21 +244,34 @@ div.redes a img{
     color: #34c81d;
 }
 @media (max-width: 850px){
+    nav a{
+        font-size: 1rem;
+    }
+    .titulo h1, .titulo h2{
+        font-size: 3rem;
+    }
+    div#container-jogo, div#contadorRegressivo #comando{
+        font-size: 1.5rem;
+    }
     .box-limite{
         margin: 80px;
         height: 350px;
     }
     .box-limite a, .box-ganha a {
-        font-size: 28px;
+        font-size: 1rem;
       
     }
     .box-limite p, .box-ganha p{
-        font-size: 24px;
+        font-size: 1.2rem;
         margin: 0px;
         letter-spacing: 1px;
     }
     div.redes a img{
         margin-top:5px;
         width: 24px;
+    }
+    footer a{
+        font-size: 1rem;
+        text-align: center;
     }
 }
