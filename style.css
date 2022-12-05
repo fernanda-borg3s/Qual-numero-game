@@ -21,7 +21,11 @@ body{
 }
 main{
     width: 100%;
-    height:110vh ;     
+    height:110vh ;   
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    flex-direction: column;
 }
 nav{
     background-color: transparent;
@@ -36,21 +40,11 @@ nav div a{
     color: var(--letter-color);
     margin-left: 50px;
 }
-nav div a:hover, img.icon-music:hover{
+nav div a:hover{
     cursor: pointer;
 }
-img.icon-music, img.icon-no-music{
-    width:45px;
-    margin-right: 50px;
-}
-img.icon-no-music{
-    display: none;
-    cursor:pointer;
-}
+
 div.container-start{
-    position:relative;
-    top:0%;
-    left:32%;
     width:550px;
     height:90vh;
     box-shadow: 2px 0px 30px rgba(0,0,0,0.3);

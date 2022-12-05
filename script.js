@@ -4,21 +4,21 @@ let showHideJogo = document.getElementById('container-jogo');
 let limite = document.getElementById("janela-limite");
 
 //FUNÇÃO ATIVAR E DESATIVAR AUDIO
-let iconNoMusic = document.getElementById("noMusic");
-let desaparecerIconMusic = document.getElementById("music");
-let audioOn = document.querySelector('audio');
-    audioOn.play();
-  const noMusic = desaparecerIconMusic.addEventListener('click', function(){
-    iconNoMusic.style.display = "block";
-    desaparecerIconMusic.style.display = "none"
-    audioOn.pause();
-  });
+// let iconNoMusic = document.getElementById("noMusic");
+// let desaparecerIconMusic = document.getElementById("music");
+// let audioOn = document.querySelector('audio');
+//     audioOn.play();
+//   const noMusic = desaparecerIconMusic.addEventListener('click', function(){
+//     iconNoMusic.style.display = "block";
+//     desaparecerIconMusic.style.display = "none"
+//     audioOn.pause();
+//   });
 
-  const onMusic = iconNoMusic.addEventListener('click', function(){
-    iconNoMusic.style.display = "none";
-    desaparecerIconMusic.style.display = "block"
-    audioOn.play();
-  })
+//   const onMusic = iconNoMusic.addEventListener('click', function(){
+//     iconNoMusic.style.display = "none";
+//     desaparecerIconMusic.style.display = "block"
+//     audioOn.play();
+//   })
 
 
 //TEMPO DA FASE 5
