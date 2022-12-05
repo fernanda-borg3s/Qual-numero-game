@@ -44,7 +44,7 @@ nav div a:hover{
 }
 
 div.container-start{
-    width:80%;
+    width:90%;
     height:90vh;
     box-shadow: 2px 0px 30px rgba(0,0,0,0.3);
       background: rgb(255,255,255,0.1);
@@ -250,9 +250,16 @@ div.redes a img{
     .titulo h1, .titulo h2{
         font-size: 3rem;
     }
-    div#container-jogo, div#contadorRegressivo #comando{
+    div#container-jogo{
         font-size: 1.5rem;
+        padding: 7px;
     }
+    div#contadorRegressivo #comando,  p#pertoOuLonge{
+        font-size: 0.8rem;
+        margin-top: 5px;
+
+    }
+  
     .box-limite{
         margin: 80px;
         height: 350px;
