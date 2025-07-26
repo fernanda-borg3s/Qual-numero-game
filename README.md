@@ -42,7 +42,7 @@ O jogo propõe ao jogador **acertar um número sorteado** em cada fase, avançan
 ```bash
 https://adivinhe-o-numero-game.netlify.app/
 ```
-## Clonar localmente
+### Clonar localmente
 ```bash
 git clone https://github.com/fernanda-borg3s/Qual-numero-game.git
 cd Qual-numero-game
